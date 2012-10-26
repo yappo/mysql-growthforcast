@@ -1,0 +1,7 @@
+all: mysql_growthforcast.dll
+
+mysql_growthforcast.dll : mysql_growthforcast.obj
+	link -dll mysql_growthforcast.obj curl.lib user32.lib
+
+mysql_growthforcast.obj : mysql_growthforcast.cc
+	cl -EHsc -DMYSQL_DYNAMIC_PLUGIN -c -I. -Ic:/progra~1/mysql/mysqls~1.5/include mysql_growthforcast.cc
